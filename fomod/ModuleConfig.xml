@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+  <moduleName>BodySlide and Outfit Studio</moduleName>
+  <moduleImage path=""/>
+  <installSteps order="Explicit">
+    <installStep name="Install">
+      <optionalFileGroups>
+        <group name="Options" type="SelectAny">
+          <plugins>
+            <plugin name="BodySlide and Outfit Studio">
+              <description>A tool to convert, create, and customize outfits and bodies for The Elder Scrolls, Fallout and Starfield: BodySlide.exe, OutfitStudio.exe and their resources (Windows x64 build).</description>
+              <image path=""/>
+              <typeDescriptor><type name="Recommended"/></typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+      <patterns>
+        <pattern name="all files">
+          <sourceFiles>
+            <source name="BodySlide.exe"/>
+            <source name="OutfitStudio.exe"/>
+            <source name="BodySlide.xml"/>
+            <source name="BuildSelection.xml"/>
+            <source name="Config.xml"/>
+            <source name="OutfitStudio.xml"/>
+            <source name="RefTemplates.xml"/>
+            <source name="res"/>
+            <source name="lang"/>
+          </sourceFiles>
+          <destination><destination path=""/></destination>
+        </pattern>
+      </patterns>
+    </installStep>
+  </installSteps>
+</config>

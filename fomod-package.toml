@@ -1,0 +1,985 @@
+# FOMOD package spec for BodySlide and Outfit Studio (schema:
+# aviallon-mods/modforge tools/package_fomod.py docstring). One [[files]] entry
+# per zip entry: the zip contains exactly this list + meta.ini at its root,
+# nothing else.
+#
+# `stage/` is produced by tools/fomod-stage.sh from tools/fomod-build.sh's
+# output (BodySlide.exe / OutfitStudio.exe built with the repo's documented
+# CMake build) plus the repo's res/, lang/ and root XML config - i.e. the same
+# payload and layout as the windows-x64-relwithdebinfo package, minus the
+# empty data directories (a zip of files cannot carry them) and minus the two
+# res/ notes whose names contain spaces, which the shared packager's
+# archive-path gate rejects (see tools/fomod-stage.sh).
+#
+# The staging script refuses to run when the staged tree carries a file this
+# spec does not claim, so a file added to res/ or lang/ turns the packaging run
+# red instead of silently missing from the zip.
+
+name = "BodySlide-and-Outfit-Studio"
+zip_name = "BodySlide-and-Outfit-Studio-{version}-fomod.zip"
+# Single source of truth for the version: the git tags, resolved exactly like
+# .github/appimage/make-appimage.sh does (`git describe --tags`, leading v
+# stripped). Written to fomod-version.txt by tools/fomod-stage.sh.
+version = { file = "fomod-version.txt" }
+game_name = "site"
+author = "ousnius and Caliente"
+description = "BodySlide and Outfit Studio, a tool to convert, create, and customize outfits and bodies for The Elder Scrolls, Fallout and Starfield."
+nexus_name = "BodySlide and Outfit Studio"
+nexus_url = "https://github.com/aviallon-mods/BodySlide-and-Outfit-Studio"
+file_category = "MAIN"
+# A standalone tool: no mod requirements.
+requirements = []
+fomod = true
+
+
+[[files]]
+src = "fomod/ModuleConfig.xml"
+dest = "fomod/ModuleConfig.xml"
+
+[[files]]
+src = "stage/BodySlide.exe"
+dest = "BodySlide.exe"
+
+[[files]]
+src = "stage/BodySlide.xml"
+dest = "BodySlide.xml"
+
+[[files]]
+src = "stage/BuildSelection.xml"
+dest = "BuildSelection.xml"
+
+[[files]]
+src = "stage/Config.xml"
+dest = "Config.xml"
+
+[[files]]
+src = "stage/OutfitStudio.exe"
+dest = "OutfitStudio.exe"
+
+[[files]]
+src = "stage/OutfitStudio.xml"
+dest = "OutfitStudio.xml"
+
+[[files]]
+src = "stage/RefTemplates.xml"
+dest = "RefTemplates.xml"
+
+[[files]]
+src = "stage/lang/BodySlide.pot"
+dest = "lang/BodySlide.pot"
+
+[[files]]
+src = "stage/lang/af/BodySlide.mo"
+dest = "lang/af/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/af/BodySlide.po"
+dest = "lang/af/BodySlide.po"
+
+[[files]]
+src = "stage/lang/an/BodySlide.mo"
+dest = "lang/an/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/an/BodySlide.po"
+dest = "lang/an/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ar/BodySlide.mo"
+dest = "lang/ar/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ar/BodySlide.po"
+dest = "lang/ar/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ca/BodySlide.mo"
+dest = "lang/ca/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ca/BodySlide.po"
+dest = "lang/ca/BodySlide.po"
+
+[[files]]
+src = "stage/lang/cs/BodySlide.mo"
+dest = "lang/cs/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/cs/BodySlide.po"
+dest = "lang/cs/BodySlide.po"
+
+[[files]]
+src = "stage/lang/da/BodySlide.mo"
+dest = "lang/da/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/da/BodySlide.po"
+dest = "lang/da/BodySlide.po"
+
+[[files]]
+src = "stage/lang/de/BodySlide.mo"
+dest = "lang/de/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/de/BodySlide.po"
+dest = "lang/de/BodySlide.po"
+
+[[files]]
+src = "stage/lang/el/BodySlide.mo"
+dest = "lang/el/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/el/BodySlide.po"
+dest = "lang/el/BodySlide.po"
+
+[[files]]
+src = "stage/lang/es/BodySlide.mo"
+dest = "lang/es/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/es/BodySlide.po"
+dest = "lang/es/BodySlide.po"
+
+[[files]]
+src = "stage/lang/eu/BodySlide.mo"
+dest = "lang/eu/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/eu/BodySlide.po"
+dest = "lang/eu/BodySlide.po"
+
+[[files]]
+src = "stage/lang/fi/BodySlide.mo"
+dest = "lang/fi/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/fi/BodySlide.po"
+dest = "lang/fi/BodySlide.po"
+
+[[files]]
+src = "stage/lang/fr/BodySlide.mo"
+dest = "lang/fr/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/fr/BodySlide.po"
+dest = "lang/fr/BodySlide.po"
+
+[[files]]
+src = "stage/lang/hi/BodySlide.mo"
+dest = "lang/hi/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/hi/BodySlide.po"
+dest = "lang/hi/BodySlide.po"
+
+[[files]]
+src = "stage/lang/hu/BodySlide.mo"
+dest = "lang/hu/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/hu/BodySlide.po"
+dest = "lang/hu/BodySlide.po"
+
+[[files]]
+src = "stage/lang/id/BodySlide.mo"
+dest = "lang/id/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/id/BodySlide.po"
+dest = "lang/id/BodySlide.po"
+
+[[files]]
+src = "stage/lang/it/BodySlide.mo"
+dest = "lang/it/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/it/BodySlide.po"
+dest = "lang/it/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ja/BodySlide.mo"
+dest = "lang/ja/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ja/BodySlide.po"
+dest = "lang/ja/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ko/BodySlide.mo"
+dest = "lang/ko/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ko/BodySlide.po"
+dest = "lang/ko/BodySlide.po"
+
+[[files]]
+src = "stage/lang/lt/BodySlide.mo"
+dest = "lang/lt/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/lt/BodySlide.po"
+dest = "lang/lt/BodySlide.po"
+
+[[files]]
+src = "stage/lang/lv/BodySlide.mo"
+dest = "lang/lv/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/lv/BodySlide.po"
+dest = "lang/lv/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ms/BodySlide.mo"
+dest = "lang/ms/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ms/BodySlide.po"
+dest = "lang/ms/BodySlide.po"
+
+[[files]]
+src = "stage/lang/nb/BodySlide.mo"
+dest = "lang/nb/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/nb/BodySlide.po"
+dest = "lang/nb/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ne/BodySlide.mo"
+dest = "lang/ne/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ne/BodySlide.po"
+dest = "lang/ne/BodySlide.po"
+
+[[files]]
+src = "stage/lang/nl/BodySlide.mo"
+dest = "lang/nl/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/nl/BodySlide.po"
+dest = "lang/nl/BodySlide.po"
+
+[[files]]
+src = "stage/lang/pl/BodySlide.mo"
+dest = "lang/pl/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/pl/BodySlide.po"
+dest = "lang/pl/BodySlide.po"
+
+[[files]]
+src = "stage/lang/pt/BodySlide.mo"
+dest = "lang/pt/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/pt/BodySlide.po"
+dest = "lang/pt/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ro/BodySlide.mo"
+dest = "lang/ro/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ro/BodySlide.po"
+dest = "lang/ro/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ru/BodySlide.mo"
+dest = "lang/ru/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ru/BodySlide.po"
+dest = "lang/ru/BodySlide.po"
+
+[[files]]
+src = "stage/lang/sk/BodySlide.mo"
+dest = "lang/sk/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/sk/BodySlide.po"
+dest = "lang/sk/BodySlide.po"
+
+[[files]]
+src = "stage/lang/sl/BodySlide.mo"
+dest = "lang/sl/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/sl/BodySlide.po"
+dest = "lang/sl/BodySlide.po"
+
+[[files]]
+src = "stage/lang/sq/BodySlide.mo"
+dest = "lang/sq/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/sq/BodySlide.po"
+dest = "lang/sq/BodySlide.po"
+
+[[files]]
+src = "stage/lang/sv/BodySlide.mo"
+dest = "lang/sv/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/sv/BodySlide.po"
+dest = "lang/sv/BodySlide.po"
+
+[[files]]
+src = "stage/lang/ta/BodySlide.mo"
+dest = "lang/ta/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/ta/BodySlide.po"
+dest = "lang/ta/BodySlide.po"
+
+[[files]]
+src = "stage/lang/tr/BodySlide.mo"
+dest = "lang/tr/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/tr/BodySlide.po"
+dest = "lang/tr/BodySlide.po"
+
+[[files]]
+src = "stage/lang/uk/BodySlide.mo"
+dest = "lang/uk/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/uk/BodySlide.po"
+dest = "lang/uk/BodySlide.po"
+
+[[files]]
+src = "stage/lang/vi/BodySlide.mo"
+dest = "lang/vi/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/vi/BodySlide.po"
+dest = "lang/vi/BodySlide.po"
+
+[[files]]
+src = "stage/lang/xrctext.cpp"
+dest = "lang/xrctext.cpp"
+
+[[files]]
+src = "stage/lang/zh/BodySlide.mo"
+dest = "lang/zh/BodySlide.mo"
+
+[[files]]
+src = "stage/lang/zh/BodySlide.po"
+dest = "lang/zh/BodySlide.po"
+
+[[files]]
+src = "stage/res/hdri/city.exr"
+dest = "res/hdri/city.exr"
+
+[[files]]
+src = "stage/res/hdri/courtyard.exr"
+dest = "res/hdri/courtyard.exr"
+
+[[files]]
+src = "stage/res/hdri/forest.exr"
+dest = "res/hdri/forest.exr"
+
+[[files]]
+src = "stage/res/hdri/interior.exr"
+dest = "res/hdri/interior.exr"
+
+[[files]]
+src = "stage/res/hdri/license.txt"
+dest = "res/hdri/license.txt"
+
+[[files]]
+src = "stage/res/hdri/night.exr"
+dest = "res/hdri/night.exr"
+
+[[files]]
+src = "stage/res/hdri/studio.exr"
+dest = "res/hdri/studio.exr"
+
+[[files]]
+src = "stage/res/hdri/sunrise.exr"
+dest = "res/hdri/sunrise.exr"
+
+[[files]]
+src = "stage/res/hdri/sunset.exr"
+dest = "res/hdri/sunset.exr"
+
+[[files]]
+src = "stage/res/images/AlphaBrush.png"
+dest = "res/images/AlphaBrush.png"
+
+[[files]]
+src = "stage/res/images/AlphaBrush_d.png"
+dest = "res/images/AlphaBrush_d.png"
+
+[[files]]
+src = "stage/res/images/BodySlide.png"
+dest = "res/images/BodySlide.png"
+
+[[files]]
+src = "stage/res/images/Bones.png"
+dest = "res/images/Bones.png"
+
+[[files]]
+src = "stage/res/images/CollapseVertex.png"
+dest = "res/images/CollapseVertex.png"
+
+[[files]]
+src = "stage/res/images/CollapseVertex_d.png"
+dest = "res/images/CollapseVertex_d.png"
+
+[[files]]
+src = "stage/res/images/ColorBrush.png"
+dest = "res/images/ColorBrush.png"
+
+[[files]]
+src = "stage/res/images/ColorBrush_d.png"
+dest = "res/images/ColorBrush_d.png"
+
+[[files]]
+src = "stage/res/images/DeflateBrush.png"
+dest = "res/images/DeflateBrush.png"
+
+[[files]]
+src = "stage/res/images/DeflateBrush_d.png"
+dest = "res/images/DeflateBrush_d.png"
+
+[[files]]
+src = "stage/res/images/Discord.png"
+dest = "res/images/Discord.png"
+
+[[files]]
+src = "stage/res/images/EdgeSlide.png"
+dest = "res/images/EdgeSlide.png"
+
+[[files]]
+src = "stage/res/images/EdgeSlide_d.png"
+dest = "res/images/EdgeSlide_d.png"
+
+[[files]]
+src = "stage/res/images/EditConnected.png"
+dest = "res/images/EditConnected.png"
+
+[[files]]
+src = "stage/res/images/EditSmall.png"
+dest = "res/images/EditSmall.png"
+
+[[files]]
+src = "stage/res/images/EditSmall_d.png"
+dest = "res/images/EditSmall_d.png"
+
+[[files]]
+src = "stage/res/images/EditSmall_green.png"
+dest = "res/images/EditSmall_green.png"
+
+[[files]]
+src = "stage/res/images/FavoriteStar.png"
+dest = "res/images/FavoriteStar.png"
+
+[[files]]
+src = "stage/res/images/FavoriteStarEmpty.png"
+dest = "res/images/FavoriteStarEmpty.png"
+
+[[files]]
+src = "stage/res/images/FlipEdge.png"
+dest = "res/images/FlipEdge.png"
+
+[[files]]
+src = "stage/res/images/FlipEdge_d.png"
+dest = "res/images/FlipEdge_d.png"
+
+[[files]]
+src = "stage/res/images/Floor.png"
+dest = "res/images/Floor.png"
+
+[[files]]
+src = "stage/res/images/GitHub.png"
+dest = "res/images/GitHub.png"
+
+[[files]]
+src = "stage/res/images/InflateBrush.png"
+dest = "res/images/InflateBrush.png"
+
+[[files]]
+src = "stage/res/images/InflateBrush_d.png"
+dest = "res/images/InflateBrush_d.png"
+
+[[files]]
+src = "stage/res/images/LoadProj.png"
+dest = "res/images/LoadProj.png"
+
+[[files]]
+src = "stage/res/images/LoadProj_sm.png"
+dest = "res/images/LoadProj_sm.png"
+
+[[files]]
+src = "stage/res/images/MaskBrush.png"
+dest = "res/images/MaskBrush.png"
+
+[[files]]
+src = "stage/res/images/MaskBrush_d.png"
+dest = "res/images/MaskBrush_d.png"
+
+[[files]]
+src = "stage/res/images/Merge.png"
+dest = "res/images/Merge.png"
+
+[[files]]
+src = "stage/res/images/MoveBrush.png"
+dest = "res/images/MoveBrush.png"
+
+[[files]]
+src = "stage/res/images/MoveBrush_d.png"
+dest = "res/images/MoveBrush_d.png"
+
+[[files]]
+src = "stage/res/images/MoveVertex.png"
+dest = "res/images/MoveVertex.png"
+
+[[files]]
+src = "stage/res/images/NewProj.png"
+dest = "res/images/NewProj.png"
+
+[[files]]
+src = "stage/res/images/NoImg.png"
+dest = "res/images/NoImg.png"
+
+[[files]]
+src = "stage/res/images/Nodes.png"
+dest = "res/images/Nodes.png"
+
+[[files]]
+src = "stage/res/images/OutfitStudio.png"
+dest = "res/images/OutfitStudio.png"
+
+[[files]]
+src = "stage/res/images/PayPal.png"
+dest = "res/images/PayPal.png"
+
+[[files]]
+src = "stage/res/images/Pivot.png"
+dest = "res/images/Pivot.png"
+
+[[files]]
+src = "stage/res/images/Pivot_d.png"
+dest = "res/images/Pivot_d.png"
+
+[[files]]
+src = "stage/res/images/PopIn.png"
+dest = "res/images/PopIn.png"
+
+[[files]]
+src = "stage/res/images/PopOut.png"
+dest = "res/images/PopOut.png"
+
+[[files]]
+src = "stage/res/images/Redo.png"
+dest = "res/images/Redo.png"
+
+[[files]]
+src = "stage/res/images/Redo_d.png"
+dest = "res/images/Redo_d.png"
+
+[[files]]
+src = "stage/res/images/RestrictNormal.png"
+dest = "res/images/RestrictNormal.png"
+
+[[files]]
+src = "stage/res/images/RestrictPlane.png"
+dest = "res/images/RestrictPlane.png"
+
+[[files]]
+src = "stage/res/images/RestrictSurface.png"
+dest = "res/images/RestrictSurface.png"
+
+[[files]]
+src = "stage/res/images/RopeSelection.png"
+dest = "res/images/RopeSelection.png"
+
+[[files]]
+src = "stage/res/images/RopeSelection_d.png"
+dest = "res/images/RopeSelection_d.png"
+
+[[files]]
+src = "stage/res/images/RotateTool.png"
+dest = "res/images/RotateTool.png"
+
+[[files]]
+src = "stage/res/images/RotateTool_d.png"
+dest = "res/images/RotateTool_d.png"
+
+[[files]]
+src = "stage/res/images/SeamEdges.png"
+dest = "res/images/SeamEdges.png"
+
+[[files]]
+src = "stage/res/images/SeamEdges_d.png"
+dest = "res/images/SeamEdges_d.png"
+
+[[files]]
+src = "stage/res/images/SelectBrush.png"
+dest = "res/images/SelectBrush.png"
+
+[[files]]
+src = "stage/res/images/SelectBrush_d.png"
+dest = "res/images/SelectBrush_d.png"
+
+[[files]]
+src = "stage/res/images/Settings.png"
+dest = "res/images/Settings.png"
+
+[[files]]
+src = "stage/res/images/SmoothBrush.png"
+dest = "res/images/SmoothBrush.png"
+
+[[files]]
+src = "stage/res/images/SmoothBrush_d.png"
+dest = "res/images/SmoothBrush_d.png"
+
+[[files]]
+src = "stage/res/images/SplitEdge.png"
+dest = "res/images/SplitEdge.png"
+
+[[files]]
+src = "stage/res/images/SplitEdge_d.png"
+dest = "res/images/SplitEdge_d.png"
+
+[[files]]
+src = "stage/res/images/TransformTool.png"
+dest = "res/images/TransformTool.png"
+
+[[files]]
+src = "stage/res/images/TransformTool_d.png"
+dest = "res/images/TransformTool_d.png"
+
+[[files]]
+src = "stage/res/images/UndiffBrush.png"
+dest = "res/images/UndiffBrush.png"
+
+[[files]]
+src = "stage/res/images/UndiffBrush_d.png"
+dest = "res/images/UndiffBrush_d.png"
+
+[[files]]
+src = "stage/res/images/Undo.png"
+dest = "res/images/Undo.png"
+
+[[files]]
+src = "stage/res/images/Undo_d.png"
+dest = "res/images/Undo_d.png"
+
+[[files]]
+src = "stage/res/images/VertexEdit.png"
+dest = "res/images/VertexEdit.png"
+
+[[files]]
+src = "stage/res/images/VertexEdit_d.png"
+dest = "res/images/VertexEdit_d.png"
+
+[[files]]
+src = "stage/res/images/ViewBack.png"
+dest = "res/images/ViewBack.png"
+
+[[files]]
+src = "stage/res/images/ViewFront.png"
+dest = "res/images/ViewFront.png"
+
+[[files]]
+src = "stage/res/images/ViewLeft.png"
+dest = "res/images/ViewLeft.png"
+
+[[files]]
+src = "stage/res/images/ViewPerspective.png"
+dest = "res/images/ViewPerspective.png"
+
+[[files]]
+src = "stage/res/images/ViewRight.png"
+dest = "res/images/ViewRight.png"
+
+[[files]]
+src = "stage/res/images/WeightBrush.png"
+dest = "res/images/WeightBrush.png"
+
+[[files]]
+src = "stage/res/images/WeightBrush_d.png"
+dest = "res/images/WeightBrush_d.png"
+
+[[files]]
+src = "stage/res/images/Weld.png"
+dest = "res/images/Weld.png"
+
+[[files]]
+src = "stage/res/images/XMirror.png"
+dest = "res/images/XMirror.png"
+
+[[files]]
+src = "stage/res/images/XMirror_d.png"
+dest = "res/images/XMirror_d.png"
+
+[[files]]
+src = "stage/res/images/greygrid.png"
+dest = "res/images/greygrid.png"
+
+[[files]]
+src = "stage/res/images/greygrid_inv.png"
+dest = "res/images/greygrid_inv.png"
+
+[[files]]
+src = "stage/res/images/icoBrokenBone.png"
+dest = "res/images/icoBrokenBone.png"
+
+[[files]]
+src = "stage/res/images/icoBrokenBoneChange.png"
+dest = "res/images/icoBrokenBoneChange.png"
+
+[[files]]
+src = "stage/res/images/icoChange.png"
+dest = "res/images/icoChange.png"
+
+[[files]]
+src = "stage/res/images/icoInvisible.png"
+dest = "res/images/icoInvisible.png"
+
+[[files]]
+src = "stage/res/images/icoNone.png"
+dest = "res/images/icoNone.png"
+
+[[files]]
+src = "stage/res/images/icoVisible.png"
+dest = "res/images/icoVisible.png"
+
+[[files]]
+src = "stage/res/images/icoWireframe.png"
+dest = "res/images/icoWireframe.png"
+
+[[files]]
+src = "stage/res/images/save.png"
+dest = "res/images/save.png"
+
+[[files]]
+src = "stage/res/images/whitegrid.png"
+dest = "res/images/whitegrid.png"
+
+[[files]]
+src = "stage/res/shaders/default.frag"
+dest = "res/shaders/default.frag"
+
+[[files]]
+src = "stage/res/shaders/default.vert"
+dest = "res/shaders/default.vert"
+
+[[files]]
+src = "stage/res/shaders/fo4_default.frag"
+dest = "res/shaders/fo4_default.frag"
+
+[[files]]
+src = "stage/res/shaders/fo4_default.vert"
+dest = "res/shaders/fo4_default.vert"
+
+[[files]]
+src = "stage/res/shaders/fullscreentri.frag"
+dest = "res/shaders/fullscreentri.frag"
+
+[[files]]
+src = "stage/res/shaders/fullscreentri.vert"
+dest = "res/shaders/fullscreentri.vert"
+
+[[files]]
+src = "stage/res/shaders/hdri_background.frag"
+dest = "res/shaders/hdri_background.frag"
+
+[[files]]
+src = "stage/res/shaders/hdri_equirect.frag"
+dest = "res/shaders/hdri_equirect.frag"
+
+[[files]]
+src = "stage/res/shaders/hdri_prefilter.frag"
+dest = "res/shaders/hdri_prefilter.frag"
+
+[[files]]
+src = "stage/res/shaders/normalshade.frag"
+dest = "res/shaders/normalshade.frag"
+
+[[files]]
+src = "stage/res/shaders/normalshade.vert"
+dest = "res/shaders/normalshade.vert"
+
+[[files]]
+src = "stage/res/shaders/ob_default.frag"
+dest = "res/shaders/ob_default.frag"
+
+[[files]]
+src = "stage/res/shaders/ob_default.vert"
+dest = "res/shaders/ob_default.vert"
+
+[[files]]
+src = "stage/res/shaders/points.frag"
+dest = "res/shaders/points.frag"
+
+[[files]]
+src = "stage/res/shaders/points.vert"
+dest = "res/shaders/points.vert"
+
+[[files]]
+src = "stage/res/shaders/primitive.frag"
+dest = "res/shaders/primitive.frag"
+
+[[files]]
+src = "stage/res/shaders/primitive.vert"
+dest = "res/shaders/primitive.vert"
+
+[[files]]
+src = "stage/res/shaders/sf_default.frag"
+dest = "res/shaders/sf_default.frag"
+
+[[files]]
+src = "stage/res/shaders/sf_default.vert"
+dest = "res/shaders/sf_default.vert"
+
+[[files]]
+src = "stage/res/shaders/sk_truepbr.frag"
+dest = "res/shaders/sk_truepbr.frag"
+
+[[files]]
+src = "stage/res/shaders/sk_truepbr.vert"
+dest = "res/shaders/sk_truepbr.vert"
+
+[[files]]
+src = "stage/res/skeleton_female_sf.nif"
+dest = "res/skeleton_female_sf.nif"
+
+[[files]]
+src = "stage/res/skeleton_female_sk.hkx"
+dest = "res/skeleton_female_sk.hkx"
+
+[[files]]
+src = "stage/res/skeleton_female_sk.nif"
+dest = "res/skeleton_female_sk.nif"
+
+[[files]]
+src = "stage/res/skeleton_female_sse.hkx"
+dest = "res/skeleton_female_sse.hkx"
+
+[[files]]
+src = "stage/res/skeleton_female_sse.nif"
+dest = "res/skeleton_female_sse.nif"
+
+[[files]]
+src = "stage/res/skeleton_fo3nv.nif"
+dest = "res/skeleton_fo3nv.nif"
+
+[[files]]
+src = "stage/res/skeleton_fo4.hkx"
+dest = "res/skeleton_fo4.hkx"
+
+[[files]]
+src = "stage/res/skeleton_fo4.nif"
+dest = "res/skeleton_fo4.nif"
+
+[[files]]
+src = "stage/res/skeleton_male_sf.nif"
+dest = "res/skeleton_male_sf.nif"
+
+[[files]]
+src = "stage/res/skeleton_male_sk.hkx"
+dest = "res/skeleton_male_sk.hkx"
+
+[[files]]
+src = "stage/res/skeleton_male_sk.nif"
+dest = "res/skeleton_male_sk.nif"
+
+[[files]]
+src = "stage/res/skeleton_male_sse.hkx"
+dest = "res/skeleton_male_sse.hkx"
+
+[[files]]
+src = "stage/res/skeleton_male_sse.nif"
+dest = "res/skeleton_male_sse.nif"
+
+[[files]]
+src = "stage/res/skeleton_ob.nif"
+dest = "res/skeleton_ob.nif"
+
+[[files]]
+src = "stage/res/xrc/About.xrc"
+dest = "res/xrc/About.xrc"
+
+[[files]]
+src = "stage/res/xrc/Actions.xrc"
+dest = "res/xrc/Actions.xrc"
+
+[[files]]
+src = "stage/res/xrc/AddProject.xrc"
+dest = "res/xrc/AddProject.xrc"
+
+[[files]]
+src = "stage/res/xrc/Automation.xrc"
+dest = "res/xrc/Automation.xrc"
+
+[[files]]
+src = "stage/res/xrc/BatchBuild.xrc"
+dest = "res/xrc/BatchBuild.xrc"
+
+[[files]]
+src = "stage/res/xrc/BodySlide.xrc"
+dest = "res/xrc/BodySlide.xrc"
+
+[[files]]
+src = "stage/res/xrc/ConvertBodyReference.xrc"
+dest = "res/xrc/ConvertBodyReference.xrc"
+
+[[files]]
+src = "stage/res/xrc/EditUV.xrc"
+dest = "res/xrc/EditUV.xrc"
+
+[[files]]
+src = "stage/res/xrc/GroupManager.xrc"
+dest = "res/xrc/GroupManager.xrc"
+
+[[files]]
+src = "stage/res/xrc/ImportDialog.xrc"
+dest = "res/xrc/ImportDialog.xrc"
+
+[[files]]
+src = "stage/res/xrc/NormalsGenDlg.xrc"
+dest = "res/xrc/NormalsGenDlg.xrc"
+
+[[files]]
+src = "stage/res/xrc/OutfitStudio.xrc"
+dest = "res/xrc/OutfitStudio.xrc"
+
+[[files]]
+src = "stage/res/xrc/Project.xrc"
+dest = "res/xrc/Project.xrc"
+
+[[files]]
+src = "stage/res/xrc/SavePreset.xrc"
+dest = "res/xrc/SavePreset.xrc"
+
+[[files]]
+src = "stage/res/xrc/Settings.xrc"
+dest = "res/xrc/Settings.xrc"
+
+[[files]]
+src = "stage/res/xrc/Setup.xrc"
+dest = "res/xrc/Setup.xrc"
+
+[[files]]
+src = "stage/res/xrc/ShapeProperties.xrc"
+dest = "res/xrc/ShapeProperties.xrc"
+
+[[files]]
+src = "stage/res/xrc/Skeleton.xrc"
+dest = "res/xrc/Skeleton.xrc"
+
+[[files]]
+src = "stage/res/xrc/Slider.xrc"
+dest = "res/xrc/Slider.xrc"
+
+[[files]]
+src = "stage/res/xrc/SliderDataImport.xrc"
+dest = "res/xrc/SliderDataImport.xrc"
+
+[[files]]
+src = "stage/res/xrc/WeightCopy.xrc"
+dest = "res/xrc/WeightCopy.xrc"

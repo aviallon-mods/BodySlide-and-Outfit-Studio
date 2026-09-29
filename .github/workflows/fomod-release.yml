@@ -1,0 +1,43 @@
+name: fomod-release
+
+# FOMOD packaging + release layer: builds the tool with the repo's documented
+# CMake build (tools/fomod-build.sh - the same steps as the Windows job of
+# .github/workflows/cmake-release.yml, minus that job's currently broken
+# BSOSTests target) and delegates everything from packaging onwards to the
+# shared pipeline aviallon-mods/modforge/.github/workflows/build-fomod.yml@main:
+# the zip is assembled from fomod-package.toml's explicit file list with a
+# stamped meta.ini, then modforge's verify_fomod.py refuses it unless it is
+# installable (exact entry list, >= 1 <plugin>, payload byte-identity).
+#
+# On a v* tag push the shared pipeline attaches the verified zip to that tag's
+# release alongside the existing AppImage/tarball assets (which stay exactly as
+# they are - this layer adds one asset and rewrites nothing).
+#
+# Note: the shared pipeline's rolling `ci` prerelease only refreshes on pushes
+# to a branch called `main`, so on this repo (default branch `dev`) only the
+# tag releases carry the zip.
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  package:
+    name: package + verify + release
+    permissions:
+      contents: write
+    uses: aviallon-mods/modforge/.github/workflows/build-fomod.yml@main
+    with:
+      mod_name: BodySlide-and-Outfit-Studio
+      package_specs: fomod-package.toml
+      runs_on: windows-2025-vs2026
+      build_shell: bash
+      build_command: tools/fomod-build.sh
+      # vcpkg's binary cache (VCPKG_DEFAULT_BINARY_CACHE in fomod-build.sh).
+      # A reusable workflow call's `with:` takes neither the runner context nor
+      # hashFiles, so the key is a plain string: bump its suffix when
+      # fomod-build.sh's vcpkg dependency set changes. vcpkg's cache is
+      # content-addressed internally, so stale entries are harmless.
+      cache_paths: vcpkg-binary-cache
+      cache_key: bsos-vcpkg-x64-windows-static-v1
+      submodules: true

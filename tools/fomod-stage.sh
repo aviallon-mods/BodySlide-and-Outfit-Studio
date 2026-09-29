@@ -14,6 +14,7 @@
 #   * two res/ notes are skipped because the shared packager's archive-path
 #     gate rejects spaces in zip entry names and their names contain spaces:
 #       res/Maya FBX Skyrim Fix.txt, res/Maya FBX FO4 Fix.txt
+# (kept in the package since modforge's packager accepts spaces in names;
 #     They are modder notes for exporting FBX from Maya, not runtime files.
 #     (modforge tools/package_fomod.py: `hostile archive path` for names its
 #     [A-Za-z0-9._\-/] class does not cover.)
@@ -49,7 +50,6 @@ mkdir -p stage
 cp "$OUT/BodySlide.exe" "$OUT/OutfitStudio.exe" stage/
 cp BodySlide.xml BuildSelection.xml Config.xml OutfitStudio.xml RefTemplates.xml stage/
 cp -a res lang stage/
-rm -f "stage/res/Maya FBX Skyrim Fix.txt" "stage/res/Maya FBX FO4 Fix.txt"
 
 echo "staged $(find stage -type f | wc -l) files"
 

@@ -7,9 +7,7 @@
 # output (BodySlide.exe / OutfitStudio.exe built with the repo's documented
 # CMake build) plus the repo's res/, lang/ and root XML config - i.e. the same
 # payload and layout as the windows-x64-relwithdebinfo package, minus the
-# empty data directories (a zip of files cannot carry them) and minus the two
-# res/ notes whose names contain spaces, which the shared packager's
-# archive-path gate rejects (see tools/fomod-stage.sh).
+# empty data directories (a zip of files cannot carry them).
 #
 # The staging script refuses to run when the staged tree carries a file this
 # spec does not claim, so a file added to res/ or lang/ turns the packaging run
@@ -983,3 +981,11 @@ dest = "res/xrc/SliderDataImport.xrc"
 [[files]]
 src = "stage/res/xrc/WeightCopy.xrc"
 dest = "res/xrc/WeightCopy.xrc"
+
+[[files]]
+src = "stage/res/Maya FBX Skyrim Fix.txt"
+dest = "res/Maya FBX Skyrim Fix.txt"
+
+[[files]]
+src = "stage/res/Maya FBX FO4 Fix.txt"
+dest = "res/Maya FBX FO4 Fix.txt"
